@@ -8,7 +8,7 @@ export default class Slider {
 
     init() {
         if (this.initialized) return; // Предотвращаем повторную инициализацию
-
+        
         this.track = this.container.querySelector('.slider-track');
         this.slides = Array.from(this.container.querySelectorAll('.slide'));
         this.prevButton = this.container.querySelector('.slider-button.prev');
@@ -23,7 +23,7 @@ export default class Slider {
         this.autoPlayInterval = this.options.autoPlayInterval || 3000;
         this.showIndicators = this.options.showIndicators !== undefined ? this.options.showIndicators : true;
 
-        this.setupSlides();
+        // this.setupSlides();
         if (this.showIndicators) {
             this.createIndicators();
         }
@@ -37,11 +37,11 @@ export default class Slider {
         this.initialized = true; // Устанавливаем флаг инициализации
     }
 
-    setupSlides() {
-        this.slides.forEach(el => {
-            el.style.flex = `0 0 ${100 / this.slideCount}%`;
-        });
-    }
+    // setupSlides() {
+    //     this.slides.forEach(el => {
+    //         el.style.flex = `0 0 ${100 / this.slideCount}%`;
+    //     });
+    // }
 
     createIndicators() {
         this.indicatorsContainer.innerHTML = '';
@@ -62,7 +62,14 @@ export default class Slider {
 
     updateSlider() {
         const trackWidth = this.track.clientWidth;
-        const translateX = -this.currentIndex * (trackWidth / this.slideCount);
+        let slideCount = 0;
+        if (trackWidth === 335){
+            slideCount = this.slideCount.mobile;
+        } else {
+            slideCount = this.slideCount.desktop;
+        }
+        const translateX = -this.currentIndex * (trackWidth / slideCount);
+        // const translateX = -this.currentIndex * (trackWidth);
         this.track.style.transform = `translateX(${translateX}px)`;
 
         if (this.showIndicators) {
