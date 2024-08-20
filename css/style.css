@@ -225,6 +225,14 @@ button,
     width: 100%;
     padding-top: 26px;
     padding-bottom: 132px;
+    min-height: 700px;
+}
+
+.promo__container {
+    position: absolute;
+    z-index: 105;
+    top: 0;
+    left: 0;
 }
 
 .promo__image {
@@ -293,10 +301,16 @@ button,
     background-color: var(--color-btn);
 }
 
-.promo__button-about {
+.promo__button.about {
     background-color: inherit;
     border: 1px solid var(--color-btn);
     color: var(--color-btn);
+}
+
+.promo__button.about:hover {
+    background-color: #FBCE51;
+    color: var(--color-btn);
+    border-color: #FBCE51;
 }
 
 .promo__button:hover {
@@ -681,7 +695,7 @@ button,
 }
 
 .slide {
-    flex: 0 0 33.333%;
+    flex: 0 0 100%;
 }
 
 @media (max-width: 1366px) {
@@ -693,6 +707,74 @@ button,
     .footer {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .tournament {
+        position: relative;
+        grid-template-rows: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tournament__image {}
+
+    .tournament__table {
+        margin: 0;
+        margin-bottom: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .tournament__label {
+        padding: 0;
+        padding: 20px 0;
+        border: none;
+        border-bottom: 1px solid var(--color-default);
+    }
+
+    .tournament__name {
+        padding: 0;
+        padding: 20px 0;
+        border: none;
+    }
+
+    .tournament__title {
+        font-size: 28px;
+        line-height: 135%;
+        margin-bottom: 20px;
+    }
+    .first {padding: 20px 0;}
+    .end {padding: 20px 0;}
+
+    .promo {}
+
+    .promo__box {
+        flex-wrap: wrap;
+    }
+
+    .promo__description {
+        max-width: 375px;
+    }
+
+    .promo__title {
+        max-width: 375px;
+    }
+
+    .promo__button {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .promo__title {
+        font-size: 36px;
+        line-height: 110%;
+    }
+
+    .promo__image {
+        top: 308px;
+        right: -765px;
+        height: 365px;
+        object-fit: contain;
     }
 
     .players {
@@ -721,22 +803,37 @@ button,
     }
 
     .stages__image {
-        top: 600px;
+        bottom: 70px;
         left: 0;
     }
+
     .stages__item {
-        margin-top: 148px;
         padding: 60px 20px 106px 72px;
+    }
+
+    .stages__list {
+        margin-top: 0;
     }
 
     .stages__title {
         position: relative;
         font-size: 36px;
         line-height: 40px;
-        padding-bottom: 68px;
+        padding-bottom: 20px;
     }
 
     .slide {
         flex: 0 0 100%;
     }
+
+    .support {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .support__title {
+        font-size: 28px;
+        line-height: 135%;
+    }
+
 }
